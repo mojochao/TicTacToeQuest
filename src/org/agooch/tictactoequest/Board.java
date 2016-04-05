@@ -4,8 +4,8 @@ public class Board {
 
     private final Player[][] cells;
 
-    public Board() {
-        this(new Player[3][3]);
+    public Board(int size) {
+        this(new Player[size][size]);
     }
 
     public Board(Player[][] cells) {
@@ -21,19 +21,27 @@ public class Board {
     }
 
     public Player[][] getDiagonalLines() {
-        return new Player[][] {
-                { cells[0][0], cells[1][1], cells[2][2] },
-                { cells[0][2], cells[1][1], cells[2][0] }
-        };
+        int size = cells.length;
+
+        Player[] diag1 = new Player[size];
+        for (int i = 0; i < size; ++i) {
+            diag1[i] = cells[i][i];
+        }
+
+        Player[] diag2 = new Player[size];
+        for (int x = 0, y = size - 1; x < size; ++x, --y) {
+            diag1[x] = cells[x][y];
+        }
+        return new Player[][] { diag1, diag2 };
     }
 
     public void display() {
         for (Player[] line : cells) {
-            String output = String.format("%c %c %c",
-                    getMarker(line[0]),
-                    getMarker(line[1]),
-                    getMarker(line[2]));
-            System.out.println(output);
+            for (Player player : line) {
+                System.out.print(getMarker(player));
+                System.out.print(' ');
+            }
+            System.out.println();
         }
         System.out.println();
     }
@@ -79,4 +87,7 @@ public class Board {
         return player == null ? '_' : player.getMarker();
     }
 
+    public int getSize() {
+        return cells.length;
+    }
 }

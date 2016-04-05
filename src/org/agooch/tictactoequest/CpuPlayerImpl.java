@@ -11,9 +11,10 @@ public final class CpuPlayerImpl extends BasePlayerImpl {
 
     @Override
     public int[] nextTurn(Game game) {
+        int size = game.getBoard().getSize();
         return new int[] {
-                random.nextInt(3),
-                random.nextInt(3)
+                random.nextInt(size),
+                random.nextInt(size)
         };
     }
 

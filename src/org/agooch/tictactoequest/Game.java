@@ -6,7 +6,7 @@ public final class Game {
             new PaperHeroImpl(),
             new ScissorsHeroImpl()
     };
-    private final Board board = new Board();
+    private final Board board = new Board(4);
     private final Player firstPlayer;
     private final Player secondPlayer;
     private Player currentPlayer = null;
@@ -15,6 +15,10 @@ public final class Game {
     public Game(Player player1, Player player2) {
         this.firstPlayer = player1;
         this.secondPlayer = player2;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 
     public void play() {

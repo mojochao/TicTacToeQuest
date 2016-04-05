@@ -61,7 +61,7 @@ public class BoardTest {
         Player p1 = new CpuPlayerImpl("CPU1", 'x');
         Player p2 = new CpuPlayerImpl("CPU2", 'o');
 
-        Board b = new Board();
+        Board b = new Board(3);
         assertFalse(b.isFull());
 
         Player[][] cells = new Player[][] {
@@ -78,7 +78,7 @@ public class BoardTest {
         Player p1 = new CpuPlayerImpl("CPU1", 'x');
         Player p2 = new CpuPlayerImpl("CPU2", 'o');
 
-        Board b = new Board();
+        Board b = new Board(3);
         assertTrue(b.isCellAvailable(new int[] {1, 2}));
 
         Player[][] cells = new Player[][] {
@@ -95,7 +95,7 @@ public class BoardTest {
         Player p1 = new CpuPlayerImpl("CPU1", 'x');
         Player p2 = new CpuPlayerImpl("CPU2", 'o');
 
-        Board b = new Board();
+        Board b = new Board(3);
         b.takeCell(p1, new int[] {1, 2});
         assertFalse(b.isCellAvailable(new int[] {1, 2}));
         assertEquals(p1, b.getCell(new int[] {1, 2}));
