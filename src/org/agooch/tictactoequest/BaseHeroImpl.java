@@ -15,12 +15,12 @@ public abstract class BaseHeroImpl implements Hero {
     }
 
     @Override
-    public String getPrompt() {
-        return String.format("Hero %s: <%c>", name, selector);
+    public char getSelector() {
+        return selector;
     }
 
     @Override
-    public char getSelector() {
-        return selector;
+    public String getPrompt() {
+        return String.format("Hero %s: <%c>", name, selector);
     }
 }

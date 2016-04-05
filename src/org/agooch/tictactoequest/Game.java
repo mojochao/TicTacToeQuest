@@ -7,11 +7,10 @@ public final class Game {
             new ScissorsHeroImpl()
     };
     private final Board board = new Board();
-    private Player currentPlayer = null;
-    private Player winningPlayer = null;
-
     private final Player firstPlayer;
     private final Player secondPlayer;
+    private Player currentPlayer = null;
+    private Player winningPlayer = null;
 
     public Game(Player player1, Player player2) {
         this.firstPlayer = player1;

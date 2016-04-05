@@ -12,10 +12,6 @@ public class Board {
         this.cells = cells;
     }
 
-    public Player[][] getCells() {
-        return cells;
-    }
-
     public Player[][] getHorizontalLines() {
         return cells;
     }
